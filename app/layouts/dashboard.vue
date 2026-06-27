@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { NavigationMenuChildItem } from '@nuxt/ui';
 
 const activeLink = computed(() => {
   const router = useRouter();
@@ -8,8 +7,13 @@ const activeLink = computed(() => {
   return currentPath;
 })
 
+const pageTitle = computed(() => {
+  const activeItem = items.find(item => item.to === activeLink.value);
+  return activeItem?.label;
+})
+
 const items = [{
-  label: 'Home',
+  label: 'Dashboard',
   icon: 'i-lucide-house',
   active: activeLink.value === "/",
   to: "/",
@@ -50,10 +54,9 @@ const items = [{
 
     <UDashboardPanel>
       <template #header>
-        <UDashboardNavbar title="Dashboard"  />
+        <UDashboardNavbar :title="pageTitle"  />
       </template>
       <template  #body>
-        {{ activeLink }}
         <slot />
       </template>
     </UDashboardPanel>
