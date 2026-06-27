@@ -54,7 +54,16 @@ const items = [{
 
     <UDashboardPanel>
       <template #header>
-        <UDashboardNavbar :title="pageTitle"  />
+        <UDashboardNavbar :title="pageTitle" >
+          <template #right>
+            <UUser 
+              name="Anonymous"
+              description="Not logged in" 
+              :avatar="{
+              style: 'background-color: lightgrey; color: white'
+            }" />
+          </template>
+        </UDashboardNavbar>
       </template>
       <template  #body>
         <slot />

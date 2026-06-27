@@ -1,2 +1,3 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+@import "./pages/dashboard.css";
