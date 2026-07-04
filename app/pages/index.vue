@@ -7,19 +7,30 @@
     :virtualize="{
       gap: 16,
       lanes: 3,
-      estimateSize: 480
+      estimateSize: 300
     }"
   >
   <UPageCard
     v-bind="item"
-    :height="item.height"
+    :style="{
+      height: `${item.height}px`,
+    }"
   >
+
+  <template #footer>
+    <div v-if="item.user" class="blog-post-footer">
+      <UUser v-bind="item.user" />
+    </div>
+  </template>
+
     
   </UPageCard>
   </UScrollArea>
 </template>
 
 <script setup>
+import { card } from '#build/ui';
+
   definePageMeta({
     name: "Dashboard",
     layout: "dashboard"
@@ -60,26 +71,52 @@
       to: "/",
       icon: "i-simple-icons-tailwindcss",
     },
+    {
+      title: "Card",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus sodales odio, vel porta massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc vulputate finibus nulla nec ornare. Curabitur in efficitur justo. Vivamus ultrices magna odio, nec laoreet turpis pulvinar rhoncus.",
+      to: "/",
+      icon: "i-simple-icons-tailwindcss",
+    },
   ];
 
-  const heights = [320, 480, 640, 800];
+  const heights = [120, 280, 340, 400];
+  const userProfiles = [
+    { 
+      name: 'Mia Chen', 
+      avatar: {
+        src: 'https://i.pravatar.cc/100?img=32'
+      } 
+    },
+    { 
+      name: 'Alex Rivera', 
+      avatar: {
+        src: 'https://i.pravatar.cc/100?img=12',
+        } 
+      },
+    { 
+      name: 'Jordan Lee', 
+      avatar: {
+        src: 'https://i.pravatar.cc/100?img=47'
+      } 
+    }
+  ];
+  const cardIndexesWithUsers = [0, 2, 5];
 
   const getHeights = (index) => {
     const seed = (index * 11 + 7) % 17;
     return heights[seed % heights.length];
   }
   
-  cards = cards.map( (card, index) => {
+  cards = cards.map((card, index) => {
+    const cardUser = cardIndexesWithUsers.includes(index)
+      ? userProfiles[cardIndexesWithUsers.indexOf(index)]
+      : undefined;
+
     return {
       ...card,
       height: getHeights(index),
+      ...(cardUser ? { user: cardUser } : {})
     }
   })
-
-  const items = Array.from({ length: 30 }, (_, i) => ({
-    id: i + 1,
-    title: `Item ${i + 1}`,
-    description: `Description for item ${i + 1}`
-  }))
 
 </script>
