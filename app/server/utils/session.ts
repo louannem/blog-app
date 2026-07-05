@@ -1,4 +1,4 @@
-import { z } from "@nuxt/content";
+import z from "zod";
 
 //ENV
 const SECRET = new TextEncoder().encode("dummy");
@@ -14,7 +14,7 @@ export const UserSchema = z.object({
 })
 export const CredentialsSchema = z.object({
   username: z.string().min(2),
-  password: z.literal("azerty"),
+  password: z.string().min(2),
 })
 
 //MOCKS AND DEMO FUNCTIONS

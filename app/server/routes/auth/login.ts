@@ -7,8 +7,9 @@ const login = new Elysia()
     ({ body, status }) => {
       const { username, password } = body as { username: string; password?: string };
       const credentials = CredentialsSchema.safeParse(body);
+      console.log(credentials)
 
-      if (!credentials) return status(500, "Username and password are required");
+      if (!credentials || credentials.error) return status(500, "Username and password are required");
 
       //Mock user login here
       const user = getUser(username);
@@ -22,8 +23,8 @@ const login = new Elysia()
     },
     {
       body: t.Object({
-        username: t.String(),
-        password: t.String()
+        username: t.Union([t.String(), t.Null(), t.Undefined()]),
+        password: t.Union([t.String(), t.Null(), t.Undefined()])
       })
     }
   )
