@@ -1,3 +1,18 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 @import "./pages/dashboard.css";
+
+
+@theme static {
+  --color-violet-50: #fff0ff;
+  --color-violet-100: #f7e3ff;
+  --color-violet-200: #edc7ff;
+  --color-violet-300: #df9eff;
+  --color-violet-400: #c974f2;
+  --color-violet-500: #b04ae7;
+  --color-violet-600: #8f2bd2;
+  --color-violet-700: #7120b1;
+  --color-violet-800: #56178d;
+  --color-violet-900: #3b0f67;
+  --color-violet-950: #22063f;
+}

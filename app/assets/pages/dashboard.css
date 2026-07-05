@@ -3,3 +3,10 @@
   display: flex;
   gap: 14px;
 }
+
+
+#dashboard .dashboard-skeleton  {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
