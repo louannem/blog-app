@@ -10,8 +10,11 @@ export const UserSchema = z.object({
   username: z.string().min(2),
   password: z.string(),
   email: z.string().min(2),
+});
 
-})
+export type User = z.infer<typeof UserSchema>;
+
+
 export const CredentialsSchema = z.object({
   username: z.string().min(2),
   password: z.string().min(2),

@@ -64,7 +64,7 @@ const onSubmit = async (payload: FormSubmitEvent<{ username: string, password: s
   if (response.value.status === 200) {
     toast.add({
       title: "Hooray !",
-      description: "Successfully logged in !",
+      description: "Successfully logged in ✨",
       color: "success",
     });
 
@@ -74,6 +74,8 @@ const onSubmit = async (payload: FormSubmitEvent<{ username: string, password: s
         message: "" 
       }
     );
+
+    navigateTo("/");
 
     //Store session + redirect
   } else if(response.value.status === 500) {
