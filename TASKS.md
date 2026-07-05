@@ -13,4 +13,5 @@
 - [ ] Store new users
 - [ ] Return success/error response
 - [ ] Connect signup form to the API
+- [ ] Add login link below form
 - [ ] Test the signup flow
