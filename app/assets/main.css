@@ -16,3 +16,9 @@
   --color-violet-900: #3b0f67;
   --color-violet-950: #22063f;
 }
+
+
+
+#__nuxt {
+  min-height: 100vh;
+}
