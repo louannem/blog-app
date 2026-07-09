@@ -30,7 +30,7 @@
   <UPageHero v-bind="heroAfterScroll" />
   </div>
   <div v-else class="dashboard-skeleton">
-    <USkeleton v-for="card of cards" class="w-[300px]" :style="{
+    <USkeleton v-for="card of cards" class="w-[full]" :style="{
       height: `${card.height}px`
     }" />
   </div>
