@@ -14,6 +14,7 @@
         </template>
       </UAuthForm>
     </UPageCard>
+    <p>No account yet ? <ULink to="/sign-in">Sign up</ULink></p>
   </div>
 </template>
 
