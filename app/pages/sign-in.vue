@@ -9,6 +9,7 @@
         @submit="onSubmit"
       />
     </UPageCard>
+    <p>Already got an account ? <ULink to="/login">Login</ULink></p>
   </div>
 </template>
 
