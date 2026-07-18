@@ -29,8 +29,8 @@
   </UScrollArea>
   <UPageHero v-bind="heroAfterScroll" />
   </div>
-  <div class="dashboard-skeleton">
-    <USkeleton v-for="card of cards" class="w-[250px]" :style="{
+  <div v-else class="dashboard-skeleton">
+    <USkeleton v-for="card of cards" class="w-[full]" :style="{
       height: `${card.height}px`
     }" />
   </div>
@@ -142,11 +142,9 @@
   }
 
   onMounted(() => {
-    console.log(loading);
     setTimeout(() => {
       loading.value = false;
-      console.log(loading);
-    }, 1000 * 5);
+    }, 1000 * 2.5);
   })
 
 </script>

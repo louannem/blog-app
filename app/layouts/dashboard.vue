@@ -12,6 +12,8 @@ const pageTitle = computed(() => {
   return activeItem?.label;
 })
 
+const isAuthenticated = ref(false);
+
 const items = [{
   label: 'Dashboard',
   icon: 'i-lucide-house',
@@ -35,7 +37,7 @@ const items = [{
 <template>
   <UDashboardGroup>
     <UDashboardSidebar
-      open
+      v-if="isAuthenticated"
       :toggle="{
         color: 'primary',
         variant: 'subtle',
